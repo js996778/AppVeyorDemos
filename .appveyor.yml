@@ -1,6 +1,7 @@
 version: 1.0.{build}
 build_script:
-- ps: .\build.ps1 -Target "AppVeyor"
+- cmd: echo "test test test.."
+#- ps: .\build.ps1 -Target "AppVeyor"
 test: off
 
 #---------------------------------#
@@ -11,11 +12,11 @@ skip_commits:
   message: /\(doc\).*/
 
 #on_finish:
-#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #
 
 #---------------------------------#
 # Build cache                     #
 #---------------------------------#
-cache:
-- tools -> build.cake, tools/packages.config
+#cache:
+#- tools -> build.cake, tools/packages.config
